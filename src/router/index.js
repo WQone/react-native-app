@@ -65,16 +65,17 @@ const LoginNavigator = createStackNavigator(
     },
   },
   {
-    navigationOptions: {
-      headerStyle: {
-        backgroundColor: '#f4511e',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    },
-    headerLayoutPreset: 'center',
+    headerMode: 'none',
+    // navigationOptions: {
+    //   headerStyle: {
+    //     backgroundColor: '#f4511e',
+    //   },
+    //   headerTintColor: '#fff',
+    //   headerTitleStyle: {
+    //     fontWeight: 'bold',
+    //   },
+    // },
+    // headerLayoutPreset: 'center',
   },
 );
 const App = createSwitchNavigator(

@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  login: {
-    backgroundColor: 'red',
-    color: 'green',
+  container: {
+    flex: 1,
+    backgroundColor: '#F5FCFF',
+    alignItems: 'center',
   },
   loginBg: {
     flex: 1,
