@@ -41,7 +41,8 @@ class PageScrollView extends Component {
       //ScrollView自身View的宽高
       viewHeight: 0,
       viewWidth: 0,
-
+      width: 0,
+      height: 0,
       //记录是否是首次
       ifFirst: true,
     };
