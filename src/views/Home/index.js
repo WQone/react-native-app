@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { ScrollView, StyleSheet, Button, Text, View, Image } from 'react-native';
 import { VALUE } from '../../utils/constance';
 import PageScrollView from '../../components/PageScrollView';
-// Mockjs 解析随机的文字
-import Mock from 'mockjs';
+import mockjsInit from '../../api/mock'; // 添加mockjs拦截请求，模拟返回服务器数据
+import api from '../../api/page';
 
 export default class Home extends Component {
   constructor(props) {
@@ -26,21 +26,23 @@ export default class Home extends Component {
       ],
     };
   }
+  componentDidMount() {
+    // mockjsInit();
+  }
   onPressButton = () => {
-    let result = Mock.mock({
-      'data|20': [
-        {
-          _id: '@ID',
-          thumb: "@IMG(1024x700,@COLOR(),'\u56fe\u7247\u4e0a\u7684\u6587\u5b57')",
-          title: '@cparagraph(1, 3)',
-          video: "'http://v.youku.com/v_show/id_XMzY5ODY5MDI3Ng==.html?spm=a2h1n.8251846.0.0'",
-        },
-      ],
-      success: true,
-    });
     this.setState({
-      value: JSON.stringify(result.data),
+      value: JSON.stringify(5656),
     });
+    api
+      .list()
+      .then((res) => {
+        this.setState({
+          value: JSON.stringify(777),
+        });
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
   render() {
     return (
@@ -60,7 +62,7 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#f2f2f2',
     fontSize: 19,
   },
   scrollStyle: {
